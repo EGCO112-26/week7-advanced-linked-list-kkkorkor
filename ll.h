@@ -149,7 +149,7 @@ void printList( LLPtr currentPtr )
 
 void printListR( LLPtr currentPtr ) //print reverse
 {
-   
+
    //find the last node to start
    while ( currentPtr->nextPtr !=NULL ) {
          currentPtr = currentPtr->nextPtr;
@@ -164,5 +164,4 @@ void printListR( LLPtr currentPtr ) //print reverse
 
       printf( "%d %s -->NULL\n",currentPtr->id, currentPtr->name );
        
-   } // end else
-} // end function printList
+} 
