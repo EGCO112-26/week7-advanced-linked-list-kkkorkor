@@ -134,7 +134,7 @@ void printList( LLPtr currentPtr )
 
       // while not the end of the list
       while ( currentPtr->nextPtr!=NULL ) {
-         printf( "%d %s --> ", currentPtr->id, currentPtr->name );
+         printf( "%d %s -->", currentPtr->id, currentPtr->name );
          currentPtr = currentPtr->nextPtr;
       } // end while
 
@@ -159,11 +159,9 @@ void printListR( LLPtr currentPtr ) //print reverse
       puts( "List is empty.\n" );
    } // end if
    else {
-      puts( "The reverse list is:" );
-
       // while not the end of the list
       while ( currentPtr->pPtr !=NULL ) {
-         printf( "%d %s --> ", currentPtr->id, currentPtr->name );
+         printf( "%d %s -->", currentPtr->id, currentPtr->name );
          currentPtr = currentPtr->pPtr;
       } // end while
 
