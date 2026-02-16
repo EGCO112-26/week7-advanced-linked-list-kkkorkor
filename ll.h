@@ -149,16 +149,13 @@ void printList( LLPtr currentPtr )
 
 void printListR( LLPtr currentPtr ) //print reverse
 {
+   
    //find the last node to start
    while ( currentPtr->nextPtr !=NULL ) {
          currentPtr = currentPtr->nextPtr;
    } 
 
-   // if list is empty
-   if ( isEmpty( currentPtr ) ) {
-      puts( "List is empty.\n" );
-   } // end if
-   else {
+
       // while not the end of the list
       while ( currentPtr->pPtr !=NULL ) {
          printf( "%d %s -->", currentPtr->id, currentPtr->name );
