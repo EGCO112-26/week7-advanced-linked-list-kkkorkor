@@ -38,25 +38,25 @@ void insert( LLPtr *sPtr, int value, char * name )
 
    newPtr =(LLPtr) malloc( sizeof( LLnode ) ); // create node
 
-   if ( newPtr != NULL ) { // is space available
+   if ( newPtr !=NULL ) { // is space available
       newPtr->id = value; // place value in node
       strcpy(newPtr->name,name);
-      newPtr->nextPtr = NULL; // node does not link to another node
-      newPtr->pPtr = NULL;
+      newPtr->nextPtr =NULL; // node does not link to another node
+      newPtr->pPtr =NULL;
        
-      previousPtr = NULL;
+      previousPtr =NULL;
       currentPtr = *sPtr;
 
       // loop to find the correct location in the list
-      while ( currentPtr != NULL && value > currentPtr->id ) {
+      while ( currentPtr !=NULL && value > currentPtr->id ) {
          previousPtr = currentPtr; // walk to ...
          currentPtr = currentPtr->nextPtr; // ... next node
       } // end while
 
       // insert new node at beginning of list
-      if ( previousPtr == NULL ) {
+      if ( previousPtr ==NULL ) {
          newPtr->nextPtr = *sPtr;
-         if(*sPtr != NULL) (*sPtr)->pPtr = newPtr; //reverse point
+         if(*sPtr !=NULL) (*sPtr)->pPtr = newPtr; //reverse point
 
          *sPtr = newPtr;
 
@@ -67,7 +67,7 @@ void insert( LLPtr *sPtr, int value, char * name )
 
 
          newPtr->nextPtr = currentPtr;
-         if(currentPtr != NULL) currentPtr->pPtr = newPtr;
+         if(currentPtr !=NULL) currentPtr->pPtr = newPtr;
          
       } // end else
    } // end if
@@ -87,7 +87,7 @@ int deletes( LLPtr *sPtr, int value )
    if ( value == ( *sPtr )->id ) {
       tempPtr = *sPtr; // hold onto node being removed
       *sPtr = ( *sPtr )->nextPtr; // de-thread the node
-      if(*sPtr) (*sPtr)->pPtr = NULL;
+      if(*sPtr) (*sPtr)->pPtr =NULL;
 
       free( tempPtr ); // free the de-threaded node
       return value;
@@ -97,13 +97,13 @@ int deletes( LLPtr *sPtr, int value )
       currentPtr = ( *sPtr )->nextPtr;
 
       // loop to find the correct location in the list
-      while ( currentPtr != NULL && currentPtr->id != value ) {
+      while ( currentPtr !=NULL && currentPtr->id != value ) {
          previousPtr = currentPtr; // walk to ...
          currentPtr = currentPtr->nextPtr; // ... next node
       } // end while
 
       // delete node at currentPtr
-      if ( currentPtr != NULL ) {
+      if ( currentPtr !=NULL ) {
          tempPtr = currentPtr;
          previousPtr->nextPtr = currentPtr->nextPtr;
          
@@ -119,7 +119,7 @@ int deletes( LLPtr *sPtr, int value )
 // return 1 if the list is empty, 0 otherwise
 int isEmpty( LLPtr sPtr )
 {
-   return sPtr == NULL;
+   return sPtr ==NULL;
 } // end function isEmpty
 
 // print the list
@@ -133,12 +133,12 @@ void printList( LLPtr currentPtr )
       puts( "The list is:" );
 
       // while not the end of the list
-      while ( currentPtr->nextPtr!= NULL ) {
+      while ( currentPtr->nextPtr!=NULL ) {
          printf( "%d %s --> ", currentPtr->id, currentPtr->name );
          currentPtr = currentPtr->nextPtr;
       } // end while
 
-      printf( "%d %s --> NULL\n",currentPtr->id, currentPtr->name );
+      printf( "%d %s -->NULL\n",currentPtr->id, currentPtr->name );
        
 
      
@@ -150,7 +150,7 @@ void printList( LLPtr currentPtr )
 void printListR( LLPtr currentPtr ) //print reverse
 {
    //find the last node to start
-   while ( currentPtr->nextPtr != NULL ) {
+   while ( currentPtr->nextPtr !=NULL ) {
          currentPtr = currentPtr->nextPtr;
    } 
 
@@ -162,12 +162,12 @@ void printListR( LLPtr currentPtr ) //print reverse
       puts( "The reverse list is:" );
 
       // while not the end of the list
-      while ( currentPtr->pPtr != NULL ) {
+      while ( currentPtr->pPtr !=NULL ) {
          printf( "%d %s --> ", currentPtr->id, currentPtr->name );
          currentPtr = currentPtr->pPtr;
       } // end while
 
-      printf( "%d %s --> NULL\n",currentPtr->id, currentPtr->name );
+      printf( "%d %s -->NULL\n",currentPtr->id, currentPtr->name );
        
    } // end else
 } // end function printList

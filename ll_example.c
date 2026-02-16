@@ -7,7 +7,7 @@
 
 int main( void )
 { 
-   LLPtr startPtr = NULL; // initially there are no nodes
+   LLPtr startPtr =NULL; // initially there are no nodes
    unsigned int choice; // user's choice
    int item; // char entered by user
    char name[20];
